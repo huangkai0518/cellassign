@@ -49,7 +49,8 @@ inference_tensorflow <- function(Y,
   tfd <- tfp$distributions
 
 
-  tf$reset_default_graph()
+  # tf$compat.v1.reset_default_graph()
+  tf$function()
 
   # Data placeholders
   Y_ <- tf$placeholder(tf$float64, shape = shape(NULL, G), name = "Y_")
